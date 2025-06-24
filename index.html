@@ -1,229 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MYWORLD MY FUGGAN <3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MYWORLD MY ARU &lt;3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Stylish&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Merriweather', serif;
-      background: #fff0f5;
-      color: #333;
-      height: 100vh;
-      overflow: hidden;
+      font-family: 'Stylish', cursive;
+      background: linear-gradient(135deg, #ffe0ec, #ffe4f5);
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      overflow: hidden;
       position: relative;
     }
-
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: #d63384;
-      margin-bottom: 1rem;
-      text-align: center;
-      z-index: 2;
-    }
-
-    .content-box {
-      background: #fff;
+    .container {
+      width: 90vw;
+      height: 80vh;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
       padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       text-align: center;
-      z-index: 2;
+      position: relative;
+      max-width: 600px;
     }
-
+    .content {
+      font-size: 1.1rem;
+      color: #333;
+      overflow-y: auto;
+    }
     .navigation {
-      margin-top: 2rem;
-      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 1rem;
     }
-
-    button {
-      background: #d63384;
-      color: #fff;
+    .nav-btn {
+      background-color: #ff69b4;
+      color: white;
       border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 30px;
-      margin: 0 10px;
-      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-size: 1rem;
+      transition: background 0.3s ease;
     }
-
-    button:hover {
-      background: #a61e66;
+    .nav-btn:hover {
+      background-color: #e0559c;
     }
-
-    /* Floating hearts */
-    .heart {
-      width: 20px;
-      height: 20px;
-      background: pink;
-      position: absolute;
-      bottom: -10px;
-      animation: float 10s linear infinite;
-      transform: rotate(45deg);
-    }
-
-    .heart::before,
-    .heart::after {
-      content: '';
-      width: 20px;
-      height: 20px;
-      background: pink;
-      border-radius: 50%;
-      position: absolute;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 10px;
+    .popup {
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      display: none;
     }
-
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.3rem;
+      color: #ff1493;
+    }
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      color: #ff69b4;
+      animation: float 6s infinite ease-in-out;
+    }
     @keyframes float {
       0% {
-        transform: translateY(0) rotate(45deg);
+        transform: translateY(100vh) scale(1);
         opacity: 1;
       }
       100% {
-        transform: translateY(-100vh) rotate(45deg);
+        transform: translateY(-10vh) scale(0.5);
         opacity: 0;
       }
-    }
-
-    /* Confetti */
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #f06292;
-      opacity: 0.7;
-      animation: fall 6s linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <!-- Floating Hearts -->
-  <script>
-    for (let i = 0; i < 20; i++) {
-      let heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDelay = Math.random() * 5 + 's';
-      heart.style.background = ['#ff6b81', '#f78fb3', '#ffb6b9'][Math.floor(Math.random() * 3)];
-      document.body.appendChild(heart);
-    }
-
-    for (let i = 0; i < 30; i++) {
-      let confetti = document.createElement('div');
-      confetti.className = 'confetti';
-      confetti.style.left = Math.random() * 100 + 'vw';
-      confetti.style.backgroundColor = ['#d63384', '#fd79a8', '#fab1a0'][Math.floor(Math.random() * 3)];
-      confetti.style.animationDelay = Math.random() * 5 + 's';
-      confetti.style.animationDuration = 3 + Math.random() * 3 + 's';
-      document.body.appendChild(confetti);
-    }
-  </script>
-
-  <!-- Main Content -->
-  <div class="title" id="page-title">MYWORLD MY FUGGAN <3</div>
-  <div class="content-box" id="page-content">
-    <p>Loading...</p>
-  </div>
-  <div class="navigation">
-    <button onclick="prevPage()">Back</button>
-    <button onclick="nextPage()">Next</button>
-  </div>
-
-  <!-- Page Flip Script -->
-  <script>
+  <div class="container">
+    <div class="content" id="storyText"></div>
+    <div class="navigation">
+      <button class="nav-btn" onclick="prevPage()">⟵ Back</button>
+      <button class="nav-btn" onclick="nextPage()">Next ⟶</button>
+    </div>
+  </div>  <div class="popup" id="popup">
+    <div class="popup-content">
+      <p>Please stay mine forever.<br>Make me perfect for you.<br>I'll change every bit of myself for you.<br>I love you, support you, and will always stay by your side.<br><strong>Forever yours, Nishu.</strong></p>
+      <button class="nav-btn" onclick="replayStory()">💗 Replay Story</button>
+    </div>
+  </div>  <div class="hearts" id="hearts"></div>  <script>
     const pages = [
-      {
-        title: "MYWORLD MY FUGGAN <3",
-        content: "Welcome to our love story. One that started with a reel and changed everything forever. 💖"
-      },
-      {
-        title: "Chapter 1: The Day My World Changed – 15 April",
-        content: "It all began with a reel. I left a comment, and she liked it. That one like... was destiny. I sent her a follow request. She accepted. I messaged, ‘Hello ji.’ And just like that, my world started changing."
-      },
-      {
-        title: "Chapter 2: The Night We Talked Forever",
-        content: "That night, I had a JEE exam. She texted me anyway. I replied, told her I was studying. She said, ‘Take your time, I’ll wait.’ That line... that care. That’s when I knew — Fuggan is different."
-      },
-      {
-        title: "Chapter 3: The 5 AM Proposal",
-        content: "We talked the whole night. And by 5 AM on 17 April, I asked her, ‘Will you be mine forever?’ And she said yes. That was it. My forever started at sunrise."
-      },
-      {
-        title: "Chapter 4: The Things I Love About You",
-        content: "Your eyes. Your smile. Your hair. The way you love. The way you care. The way you make me feel understood and safe. I love everything about you, Fuggan. Everything."
-      },
-      {
-        title: "Chapter 5: My Favourite Moments",
-        content: "Late night talks. Your sleepy voice. The first time you called me something sweet. Every little moment is now a memory I carry with my heartbeat."
-      },
-      {
-        title: "Chapter 6: When I Miss You",
-        content: "Long distance is hard. But your voice, your messages, the thought of your smile — they keep me going. I’d give anything for one hug. One real moment. But I’ll wait. For you, always."
-      },
-      {
-        title: "Chapter 7: Dreams I See With You",
-        content: "Holding hands in public. Watching movies cuddled up. Living together. Getting married. Growing old with you. It’s not just a dream — it’s the life I want with you."
-      },
-      {
-        title: "Chapter 8: Happy Birthday, Fuggan 🎂",
-        content: "Happy Birthday, my Fuggan. The world may celebrate today, but I celebrate you every day. Your smile, your laugh, your love — you are the gift of my life."
-      },
-      {
-        title: "Chapter 9: An Open Letter To My Forever",
-        content: "To my dear Fuggan,<br><br>Even writing your name makes me smile. You entered my life through a reel, but stayed as my reason to breathe. You’re not just someone I love — you are my home, my peace, my forever. I love your eyes, your heart, your soul. I dream of a life with you — hand in hand, heart in heart. No matter where life takes us, I will always be by your side.<br><br>Forever yours,<br><strong>Kunal ❤️</strong>"
-      }
+      "One reel. One comment. One follow. That’s how it all started... Who knew something so small could change everything?",
+      "We met on Instagram on April 15, 3:30 PM. I said 'Hello ji', and she replied. And from that first reply... something clicked.",
+      "She was distant at first... but I respected that. Her profile pic? I couldn’t stop staring. Traditional dress. No face. Just vibe. And I was already obsessed.",
+      "We talked all night. I had an exam. She said she'd wait. My heart melted. I was nervous for the paper. But she said, ‘I’ll be here when you’re done.’ That was the moment I knew — she was different.",
+      "At 5 AM I proposed. And she said yes. Our forever started. No ring. No roses. Just hearts beating through the phone. And she said yes.",
+      "We talked day and night. We were already addicted to each other. It felt like the universe pressed 'play' and our story had already begun.",
+      "I didn’t even see her face for 3 days — just her profile. And I was obsessed. That photo was everything to me. I didn’t need her face to fall — I was already falling.",
+      "She made me feel special. Safe. Important. Something I never felt before. With every message, she was breaking my walls and building a home inside me.",
+      "Our love wasn’t forced. It was God’s plan. That one reel changed my life. I don’t know how... I just know why. Because she was meant to find me.",
+      "The first video call — both said 'you go first'. We turned it on together and blushed so hard. At the same time. At the same second. And our hearts beat louder than the camera click.",
+      "17th April — the first ‘I love you’. Soft, real, unforgettable. Not 5AM, but still early. Still magical. Still ours.",
+      "She said: 'You’re the one I pray for. I want to marry you.' My heart melted. Her words weren’t dramatic. They were real. And that’s why they hit like fire.",
+      "She became my smile. The first person I ever smiled at in years. I hadn’t smiled in front of anyone for almost a decade. But with her? I smiled without thinking.",
+      "She gets hurt easily. She’s clumsy. When she’s hurt — I feel it in my heart. She doesn’t try to be cute — she just is. And when she’s in pain, I wish I could take every scratch for her.",
+      "We dream of a small home in another state. Me, her, and our daughter. No noise. No crowd. Just three hearts, one house, and a love that never fades.",
+      "She wants to be a surgeon. I want to be a navy captain. We want to see each other shine. A doctor and a sailor. White coat. Navy blues. Two people. One future.",
+      "I gave her the nickname 'Fuggan'. I don’t know how — it just felt right. It wasn’t from a meme or a trend. It was from my heart — from the way she made me feel. And she loved it.",
+      "We used to chat for 12–13 hours a day. Now 8–9 hours. Still feels like minutes. Time bends around her. And every second sounds like: 'I miss you.'",
+      "We slept on video calls. Peace in her breathing. Home in her presence. No goodnight texts. Just soft screens and softer hearts. I’ve never felt more safe.",
+      "I never smiled at anyone. But she made me feel handsome. Made me believe I’m perfect. I always hid my teeth. But she looked at them and said: 'You’re damn hot.' And I believed her.",
+      "Sometimes we only talk 3 hours. Because we’re working on our future — together. Less talking today = more time forever. We’re investing in each other’s dreams.",
+      "She sent me her voice. Her lip-sync. Her photos. Just 2 days in. And I fell even harder. Her voice? Sweetest music I’ve ever heard. Those moments felt like gifts from another world.",
+      "When I felt low after my results, she said, 'Nishu, it’s okay. I’m proud of you.' I didn’t believe in myself that day. But she believed in me enough for both of us.",
+      "When my family breaks me down — she builds me back up. She is my strength. When home hurts, she heals. When the world screams, she whispers: 'I’m here.' And that’s enough.",
+      "If I could freeze time, I’d say: Please stay mine forever. I’ll change every bit of myself for you. Just stay. I love you, Fuggan. Because there’s no one else. No other future. No other forever. Only her. Only Fuggan."
     ];
 
-    let current = 0;
+    let currentPage = 0;
+    const storyText = document.getElementById("storyText");
+    const popup = document.getElementById("popup");
+    const hearts = document.getElementById("hearts");
 
     function renderPage() {
-      document.getElementById('page-title').innerHTML = pages[current].title;
-      document.getElementById('page-content').innerHTML = `<p>${pages[current].content}</p>`;
+      if (currentPage < pages.length) {
+        storyText.innerText = pages[currentPage];
+      } else {
+        popup.style.display = "flex";
+      }
     }
 
     function nextPage() {
-      if (current < pages.length - 1) {
-        current++;
+      if (currentPage < pages.length) {
+        currentPage++;
         renderPage();
       }
     }
 
     function prevPage() {
-      if (current > 0) {
-        current--;
+      if (currentPage > 0) {
+        currentPage--;
         renderPage();
       }
     }
 
-    // Initial load
+    function replayStory() {
+      popup.style.display = "none";
+      currentPage = 0;
+      renderPage();
+    }
+
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.fontSize = Math.random() * 24 + 12 + "px";
+      heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+      hearts.appendChild(heart);
+    }
+
     renderPage();
-  </script>
-</body>
+  </script></body>
 </html>
