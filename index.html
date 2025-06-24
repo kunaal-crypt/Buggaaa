@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MYWORLD MY FUGGAN <3</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather&display=swap" rel="stylesheet">
   <style>
@@ -9,141 +10,220 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }body {
-  font-family: 'Merriweather', serif;
-  background: #fff0f5;
-  color: #333;
-  overflow: hidden;
-}
+    }
 
-.page {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  padding: 2rem;
-  transition: opacity 0.5s ease-in-out;
-}
+    body {
+      font-family: 'Merriweather', serif;
+      background: #fff0f5;
+      color: #333;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-.page.active {
-  display: flex;
-}
+    .title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #d63384;
+      margin-bottom: 1rem;
+      text-align: center;
+      z-index: 2;
+    }
 
-.title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #d63384;
-}
+    .content-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      text-align: center;
+      z-index: 2;
+    }
 
-.content-box {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  max-width: 600px;
-}
+    .navigation {
+      margin-top: 2rem;
+      z-index: 2;
+    }
 
-.navigation {
-  margin-top: 2rem;
-}
+    button {
+      background: #d63384;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      margin: 0 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-button {
-  background: #d63384;
-  color: #fff;
-  border: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: 30px;
-  margin: 0 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    button:hover {
+      background: #a61e66;
+    }
 
-button:hover {
-  background: #a61e66;
-}
+    /* Floating hearts */
+    .heart {
+      width: 20px;
+      height: 20px;
+      background: pink;
+      position: absolute;
+      bottom: -10px;
+      animation: float 10s linear infinite;
+      transform: rotate(45deg);
+    }
 
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #f06292;
+      opacity: 0.7;
+      animation: fall 6s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
 <body>
-  <div class="page active">
-    <div class="title">MYWORLD MY FUGGAN <3</div>
-    <div class="content-box">
-      <p>Welcome to our love story. One that started with a reel and changed everything forever. 💖</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 1: The Day My World Changed – 15 April</div>
-    <div class="content-box">
-      <p>It all began with a reel. I left a comment, and she liked it. That one like... was destiny. I sent her a follow request. She accepted. I messaged, “Hello ji.” And just like that, my world started changing.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 2: The Night We Talked Forever</div>
-    <div class="content-box">
-      <p>That night, I had a JEE exam. She texted me anyway. I replied, told her I was studying. She said, “Take your time, I’ll wait.” That line... that care. That’s when I knew — Fuggan is different.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 3: The 5 AM Proposal</div>
-    <div class="content-box">
-      <p>We talked the whole night. And by 5 AM on 17 April, I asked her, “Will you be mine forever?” And she said yes. That was it. My forever started at sunrise.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 4: The Things I Love About You</div>
-    <div class="content-box">
-      <p>Your eyes. Your smile. Your hair. The way you love. The way you care. The way you make me feel understood and safe. I love everything about you, Fuggan. Everything.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 5: My Favourite Moments</div>
-    <div class="content-box">
-      <p>Late night talks. Your sleepy voice. The first time you called me something sweet. Every little moment is now a memory I carry with my heartbeat.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 6: When I Miss You</div>
-    <div class="content-box">
-      <p>Long distance is hard. But your voice, your messages, the thought of your smile — they keep me going. I’d give anything for one hug. One real moment. But I’ll wait. For you, always.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 7: Dreams I See With You</div>
-    <div class="content-box">
-      <p>Holding hands in public. Watching movies cuddled up. Living together. Getting married. Growing old with you. It’s not just a dream — it’s the life I want with you.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 8: Happy Birthday, Fuggan 🎂</div>
-    <div class="content-box">
-      <p>Happy Birthday, my Fuggan. The world may celebrate today, but I celebrate you every day. Your smile, your laugh, your love — you are the gift of my life.</p>
-    </div>
-  </div>  <div class="page">
-    <div class="title">Chapter 9: An Open Letter To My Forever</div>
-    <div class="content-box">
-      <p>To my dear Fuggan,<br><br>Even writing your name makes me smile. You entered my life through a reel, but stayed as my reason to breathe. You’re not just someone I love — you are my home, my peace, my forever. I love your eyes, your heart, your soul. I dream of a life with you — hand in hand, heart in heart. No matter where life takes us, I will always be by your side.<br><br>Forever yours,<br><strong>Kunal ❤️</strong></p>
-    </div>
-  </div>  <div class="navigation">
+  <!-- Floating Hearts -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      heart.style.background = ['#ff6b81', '#f78fb3', '#ffb6b9'][Math.floor(Math.random() * 3)];
+      document.body.appendChild(heart);
+    }
+
+    for (let i = 0; i < 30; i++) {
+      let confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor = ['#d63384', '#fd79a8', '#fab1a0'][Math.floor(Math.random() * 3)];
+      confetti.style.animationDelay = Math.random() * 5 + 's';
+      confetti.style.animationDuration = 3 + Math.random() * 3 + 's';
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+  <!-- Main Content -->
+  <div class="title" id="page-title">MYWORLD MY FUGGAN <3</div>
+  <div class="content-box" id="page-content">
+    <p>Loading...</p>
+  </div>
+  <div class="navigation">
     <button onclick="prevPage()">Back</button>
     <button onclick="nextPage()">Next</button>
-  </div>  <script>
-    const pages = document.querySelectorAll('.page');
+  </div>
+
+  <!-- Page Flip Script -->
+  <script>
+    const pages = [
+      {
+        title: "MYWORLD MY FUGGAN <3",
+        content: "Welcome to our love story. One that started with a reel and changed everything forever. 💖"
+      },
+      {
+        title: "Chapter 1: The Day My World Changed – 15 April",
+        content: "It all began with a reel. I left a comment, and she liked it. That one like... was destiny. I sent her a follow request. She accepted. I messaged, ‘Hello ji.’ And just like that, my world started changing."
+      },
+      {
+        title: "Chapter 2: The Night We Talked Forever",
+        content: "That night, I had a JEE exam. She texted me anyway. I replied, told her I was studying. She said, ‘Take your time, I’ll wait.’ That line... that care. That’s when I knew — Fuggan is different."
+      },
+      {
+        title: "Chapter 3: The 5 AM Proposal",
+        content: "We talked the whole night. And by 5 AM on 17 April, I asked her, ‘Will you be mine forever?’ And she said yes. That was it. My forever started at sunrise."
+      },
+      {
+        title: "Chapter 4: The Things I Love About You",
+        content: "Your eyes. Your smile. Your hair. The way you love. The way you care. The way you make me feel understood and safe. I love everything about you, Fuggan. Everything."
+      },
+      {
+        title: "Chapter 5: My Favourite Moments",
+        content: "Late night talks. Your sleepy voice. The first time you called me something sweet. Every little moment is now a memory I carry with my heartbeat."
+      },
+      {
+        title: "Chapter 6: When I Miss You",
+        content: "Long distance is hard. But your voice, your messages, the thought of your smile — they keep me going. I’d give anything for one hug. One real moment. But I’ll wait. For you, always."
+      },
+      {
+        title: "Chapter 7: Dreams I See With You",
+        content: "Holding hands in public. Watching movies cuddled up. Living together. Getting married. Growing old with you. It’s not just a dream — it’s the life I want with you."
+      },
+      {
+        title: "Chapter 8: Happy Birthday, Fuggan 🎂",
+        content: "Happy Birthday, my Fuggan. The world may celebrate today, but I celebrate you every day. Your smile, your laugh, your love — you are the gift of my life."
+      },
+      {
+        title: "Chapter 9: An Open Letter To My Forever",
+        content: "To my dear Fuggan,<br><br>Even writing your name makes me smile. You entered my life through a reel, but stayed as my reason to breathe. You’re not just someone I love — you are my home, my peace, my forever. I love your eyes, your heart, your soul. I dream of a life with you — hand in hand, heart in heart. No matter where life takes us, I will always be by your side.<br><br>Forever yours,<br><strong>Kunal ❤️</strong>"
+      }
+    ];
+
     let current = 0;
 
-    function showPage(index) {
-      pages.forEach((page, i) => {
-        page.classList.toggle('active', i === index);
-      });
+    function renderPage() {
+      document.getElementById('page-title').innerHTML = pages[current].title;
+      document.getElementById('page-content').innerHTML = `<p>${pages[current].content}</p>`;
     }
 
     function nextPage() {
       if (current < pages.length - 1) {
         current++;
-        showPage(current);
+        renderPage();
       }
     }
 
     function prevPage() {
       if (current > 0) {
         current--;
-        showPage(current);
+        renderPage();
       }
     }
-  </script></body>
+
+    // Initial load
+    renderPage();
+  </script>
+</body>
 </html>
