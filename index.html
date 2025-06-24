@@ -37,9 +37,15 @@
     }
     .title {
       font-family: 'Great Vibes', cursive;
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #ff1493;
       margin-bottom: 1rem;
+    }
+    .chapter-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #d10a66;
+      margin-bottom: 0.5rem;
     }
     .content {
       font-size: 1.1rem;
@@ -117,6 +123,7 @@
 <body>
   <div class="container">
     <div class="title">MYWORLD MY ARU &lt;3</div>
+    <div class="chapter-title" id="chapterTitle"></div>
     <div class="content" id="storyText"></div>
     <div class="navigation">
       <button class="nav-btn" onclick="prevPage()">⟵ Back</button>
@@ -128,49 +135,51 @@
       <button class="nav-btn" onclick="replayStory()">💗 Replay Story</button>
     </div>
   </div>  <div class="hearts" id="hearts"></div>  <script>
-    const pages = [
-      "One reel. One comment. One follow. That’s how it all started... Who knew something so small could change everything?",
-      "We met on Instagram on April 15, 3:30 PM. I said 'Hello ji', and she replied. And from that first reply... something clicked.",
-      "She was distant at first... but I respected that. Her profile pic? I couldn’t stop staring. Traditional dress. No face. Just vibe. And I was already obsessed.",
-      "We talked all night. I had an exam. She said she'd wait. My heart melted. I was nervous for the paper. But she said, ‘I’ll be here when you’re done.’ That was the moment I knew — she was different.",
-      "At 5 AM I proposed. And she said yes. Our forever started. No ring. No roses. Just hearts beating through the phone. And she said yes.",
-      "We talked day and night. We were already addicted to each other. It felt like the universe pressed 'play' and our story had already begun.",
-      "I didn’t even see her face for 3 days — just her profile. And I was obsessed. That photo was everything to me. I didn’t need her face to fall — I was already falling.",
-      "She made me feel special. Safe. Important. Something I never felt before. With every message, she was breaking my walls and building a home inside me.",
-      "Our love wasn’t forced. It was God’s plan. That one reel changed my life. I don’t know how... I just know why. Because she was meant to find me.",
-      "The first video call — both said 'you go first'. We turned it on together and blushed so hard. At the same time. At the same second. And our hearts beat louder than the camera click.",
-      "17th April — the first ‘I love you’. Soft, real, unforgettable. Not 5AM, but still early. Still magical. Still ours.",
-      "She said: 'You’re the one I pray for. I want to marry you.' My heart melted. Her words weren’t dramatic. They were real. And that’s why they hit like fire.",
-      "She became my smile. The first person I ever smiled at in years. I hadn’t smiled in front of anyone for almost a decade. But with her? I smiled without thinking.",
-      "She gets hurt easily. She’s clumsy. When she’s hurt — I feel it in my heart. She doesn’t try to be cute — she just is. And when she’s in pain, I wish I could take every scratch for her.",
-      "We dream of a small home in another state. Me, her, and our daughter. No noise. No crowd. Just three hearts, one house, and a love that never fades.",
-      "She wants to be a surgeon. I want to be a navy captain. We want to see each other shine. A doctor and a sailor. White coat. Navy blues. Two people. One future.",
-      "I gave her the nickname 'Fuggan'. I don’t know how — it just felt right. It wasn’t from a meme or a trend. It was from my heart — from the way she made me feel. And she loved it.",
-      "We used to chat for 12–13 hours a day. Now 8–9 hours. Still feels like minutes. Time bends around her. And every second sounds like: 'I miss you.'",
-      "We slept on video calls. Peace in her breathing. Home in her presence. No goodnight texts. Just soft screens and softer hearts. I’ve never felt more safe.",
-      "I never smiled at anyone. But she made me feel handsome. Made me believe I’m perfect. I always hid my teeth. But she looked at them and said: 'You’re damn hot.' And I believed her.",
-      "Sometimes we only talk 3 hours. Because we’re working on our future — together. Less talking today = more time forever. We’re investing in each other’s dreams.",
-      "She sent me her voice. Her lip-sync. Her photos. Just 2 days in. And I fell even harder. Her voice? Sweetest music I’ve ever heard. Those moments felt like gifts from another world.",
-      "When I felt low after my results, she said, 'Nishu, it’s okay. I’m proud of you.' I didn’t believe in myself that day. But she believed in me enough for both of us.",
-      "When my family breaks me down — she builds me back up. She is my strength. When home hurts, she heals. When the world screams, she whispers: 'I’m here.' And that’s enough.",
-      "If I could freeze time, I’d say: Please stay mine forever. I’ll change every bit of myself for you. Just stay. I love you, Fuggan. Because there’s no one else. No other future. No other forever. Only her. Only Fuggan."
+    const chapters = [
+      ["How It Began", "One reel. One comment. One follow. That’s how it all started... Who knew something so small could change everything?"],
+      ["The First Hello", "We met on Instagram on April 15, 3:30 PM. I said 'Hello ji', and she replied. And from that first reply... something clicked."],
+      ["The Distance", "She was distant at first... but I respected that. Her profile pic? I couldn’t stop staring. Traditional dress. No face. Just vibe. And I was already obsessed."],
+      ["The Night That Changed Everything", "We talked all night. I had an exam. She said she'd wait. My heart melted. I was nervous for the paper. But she said, ‘I’ll be here when you’re done.’ That was the moment I knew — she was different."],
+      ["The Proposal", "At 5 AM I proposed. And she said yes. Our forever started. No ring. No roses. Just hearts beating through the phone. And she said yes."],
+      ["Our Obsession", "I didn’t even see her face for 3 days — just her profile. And I was obsessed. That photo was everything to me. I didn’t need her face to fall — I was already falling."],
+      ["God’s Plan", "Our love wasn’t forced. It was God’s plan. That one reel changed my life. I don’t know how... I just know why. Because she was meant to find me."],
+      ["First Video Call", "We both turned the camera on together. We blushed. Hard. That was our first video call. The real moment of seeing and feeling everything at once."],
+      ["First 'I Love You'", "17th April — the first ‘I love you’. Soft, real, unforgettable. Not 5AM, but still early. Still magical. Still ours."],
+      ["When She Said Forever", "She said: 'You’re the one I pray for. I want to marry you.' My heart melted. Her words weren’t dramatic. They were real."],
+      ["She Became My Smile", "She became my smile. The first person I ever smiled at in years. She made me feel safe. Seen. Perfect."],
+      ["When She Got Hurt", "She gets hurt easily. She’s clumsy. When she’s hurt — I feel it in my heart. She doesn’t try to be cute — she just is."],
+      ["Our Dream Home", "We dream of a small home in another state. Me, her, and our daughter. No noise. No crowd. Just three hearts, one house, and a love that never fades."],
+      ["Dreams and Goals", "She wants to be a surgeon. I want to be a navy captain. We want to see each other shine. A doctor and a sailor. White coat. Navy blues."],
+      ["The Nickname 'Fuggan'", "I gave her the nickname 'Fuggan'. It just felt right. Not from a meme — from the heart."],
+      ["Endless Talks", "We used to chat 12–13 hrs a day. Now 8–9 hrs. Still feels like minutes. Time bends around her. Every second sounds like: 'I miss you.'"],
+      ["Sleeping Together (Virtually)", "We slept on video calls. Peace in her breathing. Home in her presence. Soft screens and softer hearts."],
+      ["Insecurities and Comfort", "She made me feel handsome. Perfect. I hid my smile for years. But she saw it once — and made it mine again."],
+      ["Focused Future", "Sometimes we talk only 3 hrs. Because we study. For our future. Together."],
+      ["Sweet Surprise", "She sent me voice notes, pics, a lip-sync video — just 2 days in. Her voice? Sweetest music I’ve heard. My heart? Gone."],
+      ["Support After Results", "I didn’t do as well as I hoped in 10th. She said, 'Nishu, I’m proud of you.' And I felt that. Deeply."],
+      ["When Family Hurts", "When family breaks me down — she builds me back up. She is my strength. Always."],
+      ["FaceTime Words", "If I could speak through screen: Stay mine forever. I’ll change everything for you. Just don’t let go."],
+      ["Our Forever", "I love you, Fuggan. There’s no other forever. Only you."],
+      ["Final Message", "Please stay mine forever. Make me perfect for you. I love you more than these words can hold."],
     ];
 
     let currentPage = 0;
     const storyText = document.getElementById("storyText");
+    const chapterTitle = document.getElementById("chapterTitle");
     const popup = document.getElementById("popup");
     const hearts = document.getElementById("hearts");
 
     function renderPage() {
-      if (currentPage < pages.length) {
-        storyText.innerText = pages[currentPage];
+      if (currentPage < chapters.length) {
+        chapterTitle.innerText = chapters[currentPage][0];
+        storyText.innerText = chapters[currentPage][1];
       } else {
         popup.style.display = "flex";
       }
     }
 
     function nextPage() {
-      if (currentPage < pages.length) {
+      if (currentPage < chapters.length) {
         currentPage++;
         renderPage();
       }
