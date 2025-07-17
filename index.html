@@ -2,218 +2,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Love Diary 💜</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <title>Our 20-Page Love Diary 💜</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }body {
-  font-family: 'Quicksand', sans-serif;
-  background: #e6ccff;
-  overflow: hidden;
-}
-
-.book {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.page {
-  width: 90%;
-  max-width: 600px;
-  height: 90%;
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  transition: transform 0.8s ease, opacity 0.8s ease;
-  opacity: 0;
-  z-index: 1;
-}
-
-.page.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-.chapter {
-  font-family: 'Great Vibes', cursive;
-  font-size: 28px;
-  color: #7a00cc;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.text {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333;
-}
-
-.nav-buttons {
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
-  text-align: center;
-}
-
-.nav-buttons button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin: 0 10px;
-  background: #c299ff;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.nav-buttons button:hover {
-  background: #b266ff;
-}
-
-.fade-out-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #e6ccff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-family: 'Great Vibes', cursive;
-  font-size: 32px;
-  color: #9900cc;
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 2s ease;
-}
-
-.fade-out-screen.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.yes-btn {
-  margin-top: 20px;
-  background: #cc66ff;
-  padding: 15px 25px;
-  font-size: 20px;
-  border: none;
-  border-radius: 15px;
-  color: white;
-  cursor: pointer;
-}
-
-/* Background Animations */
-.hearts {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-.heart {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: pink;
-  animation: floatHeart 10s infinite;
-  opacity: 0.7;
-  border-radius: 50%;
-}
-
-@keyframes floatHeart {
-  0% {
-    transform: translateY(100vh);
-  }
-  100% {
-    transform: translateY(-10vh);
-  }
-}
-
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, lavenderblush, lavender);
+      overflow: hidden;
+    }
+    .page {
+      display: none;
+      padding: 2rem;
+      width: 90%;
+      max-width: 600px;
+      margin: 5vh auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease forwards;
+      position: relative;
+    }
+    .page.active {
+      display: block;
+    }
+    h2 {
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #a64ca6;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+      text-align: justify;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #a64ca6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #902e90;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: floatHeart 10s linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #proposal {
+      display: none;
+      text-align: center;
+      margin-top: 30vh;
+      font-size: 1.5rem;
+      color: #6d2077;
+      animation: fadeIn 2s ease forwards;
+    }
+    #proposal button {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
-  <div class="hearts" id="hearts"></div>
-  <div class="book" id="book">
-    <!-- Pages will be injected here by script -->
-  </div>  <div class="fade-out-screen" id="fadeOut">
-    Will you marry me? Will you be mine forever? 💍
-    <button class="yes-btn">Yes, of course.</button>
+  <div class="hearts" id="heart-container"></div>
+  <div id="pages-container"></div>
+  <div class="nav-buttons">
+    <button onclick="prevPage()">⟵ Prev</button>
+    <button onclick="nextPage()">Next ⟶</button>
+  </div>
+  <div id="proposal">
+    <p>💍 Will you marry me? Will you be mine forever?</p>
+    <button>Yes, of course 💖</button>
   </div>  <script>
     const pages = [
-      { title: 'Chapter 1: The First Hello', text: 'Our love story began the moment we exchanged our first messages. It was April 15, 3:30 PM when destiny sparked something beautiful between us.🫶' },
-      { title: 'Chapter 2: The Late Night Confessions', text: 'We stayed up all night talking about life, love, and dreams. It felt like we’d known each other forever. Our souls were connecting deeply.💫' },
-      // Add up to 50 pages manually or via loop with different content.
+      { title: "Chapter 1: The First Hello", content: "On April 15th, 3:30 PM, a magical moment began. A simple message led to conversations that lit up our worlds..." },
+      { title: "Chapter 2: The Connection", content: "Every message made our bond stronger. It felt like destiny was writing our love story, one emoji at a time." },
+      { title: "Chapter 3: The Confession", content: "On April 17th, you said \"I love you.\" My heart melted, and my world changed forever. That moment is etched in my soul." },
+      { title: "Chapter 4: The Nicknames", content: "Fuggan – the cutest word in my vocabulary. From Kunal to Fuggan’s Kunal, we became a world of our own." },
+      { title: "Chapter 5: Nights of Love", content: "Late-night talks, sleepy goodnights, and morning texts – you became my favorite part of every day." },
+      { title: "Chapter 6: Our Imaginary Dates", content: "Movie nights over calls, candlelight dinners in dreams, and our never-ending plans for when we finally meet..." },
+      { title: "Chapter 7: Love Letters", content: "Each letter I wrote was a piece of my heart. Every word wrapped in love, sent to the girl who stole my heart." },
+      { title: "Chapter 8: Virtual Hugs", content: "Whenever you felt low, I wished I could teleport and hug you tight. But my words became my arms." },
+      { title: "Chapter 9: The Songs We Shared", content: "'Chaar Kadam' became our anthem. Every lyric felt like it was made for us, dancing in our dream world." },
+      { title: "Chapter 10: Our Forever Plans", content: "We imagined our future – our home, our travels, our little things. And I know we’ll turn them real." },
+      { title: "Chapter 11: The Fights", content: "Yes, we had our lows. But love pulled us back. Every sorry made us stronger, every tear deepened our bond." },
+      { title: "Chapter 12: The Apologies", content: "Forgiveness became our secret power. We chose love, again and again. That's what makes us special." },
+      { title: "Chapter 13: Daydreams", content: "Random daydreams of holding your hand, walking under the stars, feeling your warmth – I live in them." },
+      { title: "Chapter 14: Support System", content: "You believed in me, even when I didn’t. Your love became my strength. You're my light, Fuggan." },
+      { title: "Chapter 15: Special Dates", content: "15th April, 17th April – not just dates, but milestones. Our timeline of eternal love." },
+      { title: "Chapter 16: The Wait", content: "Long-distance is hard, but our hearts? Always together. One day, the wait will end, and we’ll hug for real." },
+      { title: "Chapter 17: Little Things", content: "From your good mornings to your sleepy voice – every little thing you do, makes me fall deeper for you." },
+      { title: "Chapter 18: Poems of Us", content: "'I do not love you as if you were salt-rose, or topaz... I love you as certain dark things are to be loved, in secret, between the shadow and the soul.' – Pablo Neruda" },
+      { title: "Chapter 19: My Promise", content: "I promise to choose you, every moment. In happiness, in sorrow, in distance, and in presence." },
+      { title: "Chapter 20: The Proposal", content: "After 15 beautiful months, I ask you with all my heart – will you be mine forever, Fuggan? 💍" }
     ];
 
-    // Generating placeholder for 50 chapters
-    for (let i = 3; i <= 50; i++) {
-      pages.push({
-        title: `Chapter ${i}: A Page from Our Heart`,
-        text: `This page holds another special memory, a soft whisper of love, a touch of magic, and the warmth of our bond that continues to grow stronger.💜`
-      });
-    }
-
-    const book = document.getElementById('book');
-
     let currentPage = 0;
+    const pagesContainer = document.getElementById("pages-container");
 
-    pages.forEach((p, index) => {
-      const page = document.createElement('div');
-      page.classList.add('page');
-      if (index === 0) page.classList.add('active');
-
-      page.innerHTML = `
-        <div class="chapter">${p.title}</div>
-        <div class="text">${p.text}</div>
-        <div class="nav-buttons">
-          ${index > 0 ? '<button onclick="goToPage(' + (index - 1) + ')">Previous</button>' : ''}
-          ${index < pages.length - 1 ? '<button onclick="goToPage(' + (index + 1) + ')">Next</button>' : '<button onclick="showFadeOut()">Finish</button>'}
-        </div>
-      `;
-
-      book.appendChild(page);
-    });
-
-    function goToPage(index) {
-      document.querySelectorAll('.page').forEach((p, i) => {
-        p.classList.remove('active');
-        if (i === index) p.classList.add('active');
-      });
-      currentPage = index;
+    function renderPage() {
+      pagesContainer.innerHTML = "";
+      if (currentPage >= pages.length) {
+        document.getElementById("proposal").style.display = "block";
+        return;
+      }
+      document.getElementById("proposal").style.display = "none";
+      const page = document.createElement("div");
+      page.className = "page active";
+      page.innerHTML = `<h2>${pages[currentPage].title}</h2><p>${pages[currentPage].content}</p>`;
+      pagesContainer.appendChild(page);
     }
 
-    function showFadeOut() {
-      document.getElementById('fadeOut').classList.add('show');
+    function nextPage() {
+      if (currentPage < pages.length) {
+        currentPage++;
+        renderPage();
+      }
     }
 
-    // Hearts animation
-    const heartsContainer = document.getElementById('hearts');
-    for (let i = 0; i < 50; i++) {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.top = Math.random() * 100 + 'vh';
-      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
-      heartsContainer.appendChild(heart);
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        renderPage();
+      }
     }
+
+    function generateHearts() {
+      const heartContainer = document.getElementById("heart-container");
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDelay = `${Math.random() * 10}s`;
+        heartContainer.appendChild(heart);
+      }
+    }
+
+    generateHearts();
+    renderPage();
   </script></body>
 </html>
