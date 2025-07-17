@@ -2,212 +2,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MYWORLD MY ARU &lt;3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Stylish&display=swap" rel="stylesheet">
+  <title>Our Love Diary 💜</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-    body {
-      font-family: 'Stylish', cursive;
-      background: linear-gradient(135deg, #ffe0ec, #ffe4f5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-    .container {
-      width: 90vw;
-      height: 80vh;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      max-width: 600px;
-    }
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2rem;
-      color: #ff1493;
-      margin-bottom: 1rem;
-    }
-    .chapter-title {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #d10a66;
-      margin-bottom: 0.5rem;
-    }
-    .content {
-      font-size: 1.1rem;
-      color: #333;
-      overflow-y: auto;
-    }
-    .navigation {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      margin-top: 1rem;
-    }
-    .nav-btn {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-    }
-    .nav-btn:hover {
-      background-color: #e0559c;
-    }
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      display: none;
-    }
-    .popup-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 400px;
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.3rem;
-      color: #ff1493;
-    }
-    .hearts {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .heart {
-      position: absolute;
-      color: #ff69b4;
-      animation: float 6s infinite ease-in-out;
-    }
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(0.5);
-        opacity: 0;
-      }
-    }
+    }body {
+  font-family: 'Quicksand', sans-serif;
+  background: #e6ccff;
+  overflow: hidden;
+}
+
+.book {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.page {
+  width: 90%;
+  max-width: 600px;
+  height: 90%;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  opacity: 0;
+  z-index: 1;
+}
+
+.page.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.chapter {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #7a00cc;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.nav-buttons {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  background: #c299ff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-buttons button:hover {
+  background: #b266ff;
+}
+
+.fade-out-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #e6ccff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #9900cc;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease;
+}
+
+.fade-out-screen.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.yes-btn {
+  margin-top: 20px;
+  background: #cc66ff;
+  padding: 15px 25px;
+  font-size: 20px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Background Animations */
+.hearts {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  animation: floatHeart 10s infinite;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-10vh);
+  }
+}
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="title">MYWORLD MY ARU &lt;3</div>
-    <div class="chapter-title" id="chapterTitle"></div>
-    <div class="content" id="storyText"></div>
-    <div class="navigation">
-      <button class="nav-btn" onclick="prevPage()">⟵ Back</button>
-      <button class="nav-btn" onclick="nextPage()">Next ⟶</button>
-    </div>
-  </div>  <div class="popup" id="popup">
-    <div class="popup-content">
-      <p>Please stay mine forever.<br>Make me perfect for you.<br>I'll change every bit of myself for you.<br>I love you, support you, and will always stay by your side.<br><strong>Forever yours, Nishu.</strong></p>
-      <button class="nav-btn" onclick="replayStory()">💗 Replay Story</button>
-    </div>
-  </div>  <div class="hearts" id="hearts"></div>  <script>
-    const chapters = [
-      ["How It Began", "One reel. One comment. One follow. That’s how it all started... Who knew something so small could change everything?"],
-      ["The First Hello", "We met on Instagram on April 15, 3:30 PM. I said 'Hello ji', and she replied. And from that first reply... something clicked."],
-      ["The Distance", "She was distant at first... but I respected that. Her profile pic? I couldn’t stop staring. Traditional dress. No face. Just vibe. And I was already obsessed."],
-      ["The Night That Changed Everything", "We talked all night. I had an exam. She said she'd wait. My heart melted. I was nervous for the paper. But she said, ‘I’ll be here when you’re done.’ That was the moment I knew — she was different."],
-      ["The Proposal", "At 5 AM I proposed. And she said yes. Our forever started. No ring. No roses. Just hearts beating through the phone. And she said yes."],
-      ["Our Obsession", "I didn’t even see her face for 3 days — just her profile. And I was obsessed. That photo was everything to me. I didn’t need her face to fall — I was already falling."],
-      ["God’s Plan", "Our love wasn’t forced. It was God’s plan. That one reel changed my life. I don’t know how... I just know why. Because she was meant to find me."],
-      ["First Video Call", "We both turned the camera on together. We blushed. Hard. That was our first video call. The real moment of seeing and feeling everything at once."],
-      ["First 'I Love You'", "17th April — the first ‘I love you’. Soft, real, unforgettable. Not 5AM, but still early. Still magical. Still ours."],
-      ["When She Said Forever", "She said: 'You’re the one I pray for. I want to marry you.' My heart melted. Her words weren’t dramatic. They were real."],
-      ["She Became My Smile", "She became my smile. The first person I ever smiled at in years. She made me feel safe. Seen. Perfect."],
-      ["When She Got Hurt", "She gets hurt easily. She’s clumsy. When she’s hurt — I feel it in my heart. She doesn’t try to be cute — she just is."],
-      ["Our Dream Home", "We dream of a small home in another state. Me, her, and our daughter. No noise. No crowd. Just three hearts, one house, and a love that never fades."],
-      ["Dreams and Goals", "She wants to be a surgeon. I want to be a navy captain. We want to see each other shine. A doctor and a sailor. White coat. Navy blues."],
-      ["The Nickname 'Fuggan'", "I gave her the nickname 'Fuggan'. It just felt right. Not from a meme — from the heart."],
-      ["Endless Talks", "We used to chat 12–13 hrs a day. Now 8–9 hrs. Still feels like minutes. Time bends around her. Every second sounds like: 'I miss you.'"],
-      ["Sleeping Together (Virtually)", "We slept on video calls. Peace in her breathing. Home in her presence. Soft screens and softer hearts."],
-      ["Insecurities and Comfort", "She made me feel handsome. Perfect. I hid my smile for years. But she saw it once — and made it mine again."],
-      ["Focused Future", "Sometimes we talk only 3 hrs. Because we study. For our future. Together."],
-      ["Sweet Surprise", "She sent me voice notes, pics, a lip-sync video — just 2 days in. Her voice? Sweetest music I’ve heard. My heart? Gone."],
-      ["Support After Results", "I didn’t do as well as I hoped in 10th. She said, 'Nishu, I’m proud of you.' And I felt that. Deeply."],
-      ["When Family Hurts", "When family breaks me down — she builds me back up. She is my strength. Always."],
-      ["FaceTime Words", "If I could speak through screen: Stay mine forever. I’ll change everything for you. Just don’t let go."],
-      ["Our Forever", "I love you, Fuggan. There’s no other forever. Only you."],
-      ["Final Message", "Please stay mine forever. Make me perfect for you. I love you more than these words can hold."],
+  <div class="hearts" id="hearts"></div>
+  <div class="book" id="book">
+    <!-- Pages will be injected here by script -->
+  </div>  <div class="fade-out-screen" id="fadeOut">
+    Will you marry me? Will you be mine forever? 💍
+    <button class="yes-btn">Yes, of course.</button>
+  </div>  <script>
+    const pages = [
+      { title: 'Chapter 1: The First Hello', text: 'Our love story began the moment we exchanged our first messages. It was April 15, 3:30 PM when destiny sparked something beautiful between us.🫶' },
+      { title: 'Chapter 2: The Late Night Confessions', text: 'We stayed up all night talking about life, love, and dreams. It felt like we’d known each other forever. Our souls were connecting deeply.💫' },
+      // Add up to 50 pages manually or via loop with different content.
     ];
 
+    // Generating placeholder for 50 chapters
+    for (let i = 3; i <= 50; i++) {
+      pages.push({
+        title: `Chapter ${i}: A Page from Our Heart`,
+        text: `This page holds another special memory, a soft whisper of love, a touch of magic, and the warmth of our bond that continues to grow stronger.💜`
+      });
+    }
+
+    const book = document.getElementById('book');
+
     let currentPage = 0;
-    const storyText = document.getElementById("storyText");
-    const chapterTitle = document.getElementById("chapterTitle");
-    const popup = document.getElementById("popup");
-    const hearts = document.getElementById("hearts");
 
-    function renderPage() {
-      if (currentPage < chapters.length) {
-        chapterTitle.innerText = chapters[currentPage][0];
-        storyText.innerText = chapters[currentPage][1];
-      } else {
-        popup.style.display = "flex";
-      }
+    pages.forEach((p, index) => {
+      const page = document.createElement('div');
+      page.classList.add('page');
+      if (index === 0) page.classList.add('active');
+
+      page.innerHTML = `
+        <div class="chapter">${p.title}</div>
+        <div class="text">${p.text}</div>
+        <div class="nav-buttons">
+          ${index > 0 ? '<button onclick="goToPage(' + (index - 1) + ')">Previous</button>' : ''}
+          ${index < pages.length - 1 ? '<button onclick="goToPage(' + (index + 1) + ')">Next</button>' : '<button onclick="showFadeOut()">Finish</button>'}
+        </div>
+      `;
+
+      book.appendChild(page);
+    });
+
+    function goToPage(index) {
+      document.querySelectorAll('.page').forEach((p, i) => {
+        p.classList.remove('active');
+        if (i === index) p.classList.add('active');
+      });
+      currentPage = index;
     }
 
-    function nextPage() {
-      if (currentPage < chapters.length) {
-        currentPage++;
-        renderPage();
-      }
+    function showFadeOut() {
+      document.getElementById('fadeOut').classList.add('show');
     }
 
-    function prevPage() {
-      if (currentPage > 0) {
-        currentPage--;
-        renderPage();
-      }
+    // Hearts animation
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      heartsContainer.appendChild(heart);
     }
-
-    function replayStory() {
-      popup.style.display = "none";
-      currentPage = 0;
-      renderPage();
-    }
-
-    for (let i = 0; i < 30; i++) {
-      let heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "❤";
-      heart.style.left = Math.random() * 100 + "%";
-      heart.style.fontSize = Math.random() * 24 + 12 + "px";
-      heart.style.animationDuration = 4 + Math.random() * 4 + "s";
-      hearts.appendChild(heart);
-    }
-
-    renderPage();
   </script></body>
 </html>
