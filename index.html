@@ -1,204 +1,327 @@
-<!DOCTYPE html><html lang="en">
+<!doctype html>
+
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our 20-Page Love Diary 💜</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Birthday Diary — Niharika</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;500;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --bg:#fff8f0;
+      --paper:#fffdf8;
+      --ink:#2b2b2b;
+      --accent:#ff7ab6;
+      --muted:#6b6b6b;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, lavenderblush, lavender);
-      overflow: hidden;
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(circle at 10% 10%, #fff9f2 0%, var(--bg) 30%), linear-gradient(180deg, #fefefe, #fff6f8 60%);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-y:scroll;
     }
-    .page {
-      display: none;
-      padding: 2rem;
-      width: 90%;
-      max-width: 600px;
-      margin: 5vh auto;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 1s ease forwards;
-      position: relative;
+    .container{
+      max-width:900px;
+      margin:40px auto;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.98));
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,0.03);
+      position:relative;
+      overflow:hidden;
     }
-    .page.active {
-      display: block;
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
     }
-    h2 {
-      text-align: center;
-      font-family: 'Great Vibes', cursive;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #a64ca6;
+    .notebook{
+      width:88px;
+      height:110px;
+      background: linear-gradient(180deg,#fff,#fff9f2);
+      border-radius:10px;
+      padding:12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      align-items:center;
     }
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #444;
-      text-align: justify;
+    .lines{width:100%;height:6px;background:linear-gradient(90deg,transparent, rgba(0,0,0,0.03) 50%, transparent);border-radius:6px}
+    h1{
+      font-family:'Dancing Script', 'Patrick Hand', cursive;
+      font-size:34px;
+      margin:0;
+      color:#2f2642;
+      letter-spacing:0.3px;
     }
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background: #a64ca6;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #902e90;
-    }
-    .hearts {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: pink;
-      transform: rotate(45deg);
-      animation: floatHeart 10s linear infinite;
-    }
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: pink;
-      border-radius: 50%;
-    }
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(100vh) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(0.5);
-        opacity: 0;
-      }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    #proposal {
-      display: none;
-      text-align: center;
-      margin-top: 30vh;
-      font-size: 1.5rem;
-      color: #6d2077;
-      animation: fadeIn 2s ease forwards;
-    }
-    #proposal button {
-      margin-top: 2rem;
-      font-size: 1.2rem;
-    }
+    .subtitle{font-size:13px;color:var(--muted);margin-top:4px}/* cake */
+.cake-wrap{margin-left:auto;text-align:right}
+.cake{
+  width:98px;height:110px;display:inline-block;position:relative;cursor:pointer;
+  transform-origin:center bottom;
+}
+.cake .plate{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:110px;height:12px;background:linear-gradient(90deg,#efefef,#f8f5ff);border-radius:10px}
+.cake .body{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;width:86px;height:64px;background:linear-gradient(180deg,#ffdfe9,#ffb5d1);border-radius:10px 10px 8px 8px;box-shadow:inset 0 -6px 10px rgba(0,0,0,0.04)}
+.cake .frost{position:absolute;left:50%;transform:translateX(-50%);bottom:60px;width:96px;height:18px;background:linear-gradient(90deg,#fff,#fff6f8);border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.04)}
+.candle{position:absolute;left:50%;transform:translateX(-50%);bottom:72px;width:8px;height:28px;background:#fff4da;border-radius:3px;border:2px solid #ffd27e}
+.flame{position:absolute;left:50%;transform:translateX(-50%);bottom:100px;width:22px;height:22px;border-radius:50%;background:linear-gradient(180deg,#ffd76b,#ff7a28);opacity:0;transform-origin:center bottom;filter:drop-shadow(0 6px 8px rgba(255,130,90,0.18))}
+.flame.lit{opacity:1;animation:flame 900ms infinite}
+@keyframes flame{0%{transform:translateX(-50%) scaleY(0.95)}50%{transform:translateX(-50%) scaleY(1.12)}100%{transform:translateX(-50%) scaleY(0.95)}}
+.cake-label{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* diary pages */
+.page{margin-top:22px;background:var(--paper);border-radius:12px;padding:28px 30px;box-shadow:0 14px 30px rgba(0,0,0,0.05);border-left:6px solid rgba(255,122,138,0.08)}
+.page .date{font-family:'Patrick Hand', 'Dancing Script';font-size:18px;color:#9b6b7f}
+.page h2{font-family:'Patrick Hand';font-size:22px;margin:8px 0 12px}
+.page p{line-height:1.6;color:#2c2c2c;font-size:15px}
+
+/* chapter reveal */
+.chapter{opacity:0;transform:translateY(18px);transition:all 650ms cubic-bezier(.2,.9,.2,1);will-change:transform,opacity}
+.chapter.visible{opacity:1;transform:none}
+
+/* small decorations */
+.dot-ruled{background-image:linear-gradient(transparent 28px, rgba(0,0,0,0.02) 29px);background-size:100% 30px;padding:18px;border-radius:8px}
+
+/* footer */
+footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+/* confetti */
+.confetti{pointer-events:none;position:fixed;left:0;top:0;width:100%;height:100%;z-index:999}
+.confetti .piece{position:absolute;width:10px;height:16px;opacity:0;will-change:transform,opacity}
+
+/* mobile tweaks */
+@media (max-width:640px){
+  .container{margin:18px;padding:18px}
+  h1{font-size:28px}
+  .cake{width:78px;height:86px}
+}
+
   </style>
 </head>
 <body>
-  <div class="hearts" id="heart-container"></div>
-  <div id="pages-container"></div>
-  <div class="nav-buttons">
-    <button onclick="prevPage()">⟵ Prev</button>
-    <button onclick="nextPage()">Next ⟶</button>
+  <div class="container" role="main">
+    <header>
+      <div>
+        <div class="notebook">
+          <div class="lines"></div>
+          <div class="lines"></div>
+          <div class="lines"></div>
+        </div>
+      </div>
+      <div>
+        <h1>Happy Birthday, Niharika</h1>
+        <div class="subtitle">A diary of random memories, roast, and wishes. — From your bsf</div>
+      </div>
+      <div class="cake-wrap">
+        <div class="cake" id="cake" title="Click to light the candle">
+          <div class="plate"></div>
+          <div class="frost"></div>
+          <div class="body"></div>
+          <div class="candle"></div>
+          <div class="flame" id="flame"></div>
+        </div>
+        <div class="cake-label">Tap cake to light</div>
+      </div>
+    </header><section class="page dot-ruled">
+  <div class="date">Chapter 1 — How we met</div>
+  <h2>That one wrong message</h2>
+  <div class="chapter" id="c1">
+    <p>
+      I joined the new school in 2024. New class, new faces, nothing saved in my phone. A math group got made and I was added. I wanted to message Adarsh. Instead I messaged you. Yep. I texted a girl thinking she was a guy from class. You replied, told me you were not Adarsh, and then refused to tell your name. Classic start.
+    </p>
+    <p>
+      If that message had not happened, we honestly might never have talked properly. That single mistake turned into late messages about studies, random jokes, and finally, by Diwali 2024, you told me your name — Niharika. October 2024 is when we became proper friends. Funny how life sets small traps that turn into good things.
+    </p>
   </div>
-  <div id="proposal">
-    <p>💍 Will you marry me? Will you be mine forever?</p>
-    <button>Yes, of course 💖</button>
-  </div>  <script>
-    const pages = [
-      { title: "Chapter 1: The First Hello", content: "On April 15th, 3:30 PM, a magical moment began. A simple message led to conversations that lit up our worlds..." },
-      { title: "Chapter 2: The Connection", content: "Every message made our bond stronger. It felt like destiny was writing our love story, one emoji at a time." },
-      { title: "Chapter 3: The Confession", content: "On April 17th, you said \"I love you.\" My heart melted, and my world changed forever. That moment is etched in my soul." },
-      { title: "Chapter 4: The Nicknames", content: "Fuggan – the cutest word in my vocabulary. From Kunal to Fuggan’s Kunal, we became a world of our own." },
-      { title: "Chapter 5: Nights of Love", content: "Late-night talks, sleepy goodnights, and morning texts – you became my favorite part of every day." },
-      { title: "Chapter 6: Our Imaginary Dates", content: "Movie nights over calls, candlelight dinners in dreams, and our never-ending plans for when we finally meet..." },
-      { title: "Chapter 7: Love Letters", content: "Each letter I wrote was a piece of my heart. Every word wrapped in love, sent to the girl who stole my heart." },
-      { title: "Chapter 8: Virtual Hugs", content: "Whenever you felt low, I wished I could teleport and hug you tight. But my words became my arms." },
-      { title: "Chapter 9: The Songs We Shared", content: "'Chaar Kadam' became our anthem. Every lyric felt like it was made for us, dancing in our dream world." },
-      { title: "Chapter 10: Our Forever Plans", content: "We imagined our future – our home, our travels, our little things. And I know we’ll turn them real." },
-      { title: "Chapter 11: The Fights", content: "Yes, we had our lows. But love pulled us back. Every sorry made us stronger, every tear deepened our bond." },
-      { title: "Chapter 12: The Apologies", content: "Forgiveness became our secret power. We chose love, again and again. That's what makes us special." },
-      { title: "Chapter 13: Daydreams", content: "Random daydreams of holding your hand, walking under the stars, feeling your warmth – I live in them." },
-      { title: "Chapter 14: Support System", content: "You believed in me, even when I didn’t. Your love became my strength. You're my light, Fuggan." },
-      { title: "Chapter 15: Special Dates", content: "15th April, 17th April – not just dates, but milestones. Our timeline of eternal love." },
-      { title: "Chapter 16: The Wait", content: "Long-distance is hard, but our hearts? Always together. One day, the wait will end, and we’ll hug for real." },
-      { title: "Chapter 17: Little Things", content: "From your good mornings to your sleepy voice – every little thing you do, makes me fall deeper for you." },
-      { title: "Chapter 18: Poems of Us", content: "'I do not love you as if you were salt-rose, or topaz... I love you as certain dark things are to be loved, in secret, between the shadow and the soul.' – Pablo Neruda" },
-      { title: "Chapter 19: My Promise", content: "I promise to choose you, every moment. In happiness, in sorrow, in distance, and in presence." },
-      { title: "Chapter 20: The Proposal", content: "After 15 beautiful months, I ask you with all my heart – will you be mine forever, Fuggan? 💍" }
-    ];
+</section>
 
-    let currentPage = 0;
-    const pagesContainer = document.getElementById("pages-container");
+<section class="page">
+  <div class="date">Chapter 2 — First impressions</div>
+  <h2>Cool, focused, and actually scary at studies</h2>
+  <div class="chapter" id="c2">
+    <p>
+      First real impression: you are mad serious about studies. Not just smart, but consistent. Watching you study made me want to stop sleeping on notes. You were the one who actually cared about the paper, the one who prepared properly. Lowkey motivation material.
+    </p>
+    <p>
+      You are talented and hardworking. You help others, explain doubts, and somehow make complex things simple. That gave me confidence and help when I needed it. Thanks for that.
+    </p>
+  </div>
+</section>
 
-    function renderPage() {
-      pagesContainer.innerHTML = "";
-      if (currentPage >= pages.length) {
-        document.getElementById("proposal").style.display = "block";
-        return;
+<section class="page dot-ruled">
+  <div class="date">Chapter 3 — Nicknames & personalities</div>
+  <h2>Ms Slayy, Pookie, Temdi, Malich — same person, different chaos</h2>
+  <div class="chapter" id="c3">
+    <p>
+      You have so many modes and honestly I love exposing each one. Ms Slayy is the confident one. Pookie is the soft one who actually checks on people. Temdi is full chaos, random nonsense energy that derails conversations. Malich is stubborn and won't give up once you pick a side.
+    </p>
+    <p>
+      Also you call me suvar and kukur and I still don't know if I should be offended or grateful. Balance, right?
+    </p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="date">Chapter 4 — Funny moments</div>
+  <h2>Small things that keep replaying</h2>
+  <div class="chapter" id="c4">
+    <p>
+      We don't need big events to laugh. Half the time we begin with a serious question and five minutes later we are talking nonsense. You say something random, I try to be serious, and the whole chat collapses into jokes. There was that one time I tried to ask something and you replied with a line so random I still remember it and laugh.
+    </p>
+    <p>
+      Another classic: when you get annoyed, you explain with full energy and the serious face makes it even funnier. You try to act calm when people laugh and fail spectacularly. Those moments are golden.
+    </p>
+  </div>
+</section>
+
+<section class="page dot-ruled">
+  <div class="date">Chapter 5 — Roasts (birthday special)</div>
+  <h2>Friendly exposes</h2>
+  <div class="chapter" id="c5">
+    <p>
+      Okay Ms Slayy — confidence level 100. You will defend your point like a lawyer even when wrong. Temdi — you derail conversations for fun. Malich — once your mind is made up, it is done. Pookie — you act soft but you roast harder than most.
+    </p>
+    <p>
+      I will keep calling you Temdi and Malich and expecting you to act offended. But on your birthday I will let you have this.
+    </p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="date">Chapter 6 — Things I admire</div>
+  <h2>Brave, kind, and weirdly calming</h2>
+  <div class="chapter" id="c6">
+    <p>
+      You are brave in small ways. You keep moving even when things get heavy. Real bravery is not showy. It is getting up and doing the work. You do that.
+    </p>
+    <p>
+      Your smile is contagious. If someone is upset, your smile makes it hard to stay upset. You support friends, listen, and step in when someone needs help. That kind of loyalty is rare.
+    </p>
+  </div>
+</section>
+
+<section class="page dot-ruled">
+  <div class="date">Chapter 7 — Study buddy & teamwork</div>
+  <h2>Class 11 and 12 — the real years</h2>
+  <div class="chapter" id="c7">
+    <p>
+      We shared important years. Those exam months, late-night doubts, quick explanations before tests. You helped with studies and also kept the mood light when stress was high. You were there. That matters.
+    </p>
+    <p>
+      Thank you for the notes, the explanations, and the small pushes when I needed them.
+    </p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="date">Chapter 8 — Future wishes</div>
+  <h2>Billionaire? Maybe. Happy? Definitely.</h2>
+  <div class="chapter" id="c8">
+    <p>
+      I want you to become everything you want. Money is not the only goal but yeah become a billionaire if you want so you can buy me stuff. But on a real note, I want you to be proud of your life. I want you to support your family. I want you to travel, learn, and grow.
+    </p>
+    <p>
+      Live on your terms. Don't change for someone who won't be around later. Keep your honesty, keep your humor, keep your weird little daily habits that make you you.
+    </p>
+  </div>
+</section>
+
+<section class="page dot-ruled">
+  <div class="date">Chapter 9 — Small thank yous</div>
+  <h2>Because you actually showed up</h2>
+  <div class="chapter" id="c9">
+    <p>
+      Thank you for listening. Thank you for helping during exam panic. Thank you for laughing at stupid jokes. Thank you for roasting me and for calling me suvar. Thank you for being someone I can actually talk to without effort.
+    </p>
+    <p>
+      Good friendships are rare. We found one. Keep it.
+    </p>
+  </div>
+</section>
+
+<section class="page last">
+  <div class="date">Final chapter</div>
+  <h2>Happy Birthday, best friend</h2>
+  <div class="chapter" id="c10">
+    <p>
+      Today eat cake. Annoy people. Take photos. Be loud. Be lazy. Do whatever makes today feel like your day. But also remember you are capable of big things. Keep working, keep smiling, keep being stubborn when it matters.
+    </p>
+    <p>
+      One wrong message started this. One girl who refused to share her name turned into a friend I trust. That is weird but real. I value that.
+    </p>
+    <p>
+      Happy birthday Niharika. From your friend who will always call you Temdi and Malich and still expect you to help with physics notes.
+    </p>
+  </div>
+</section>
+
+<footer>Open this on a phone or desktop. Tap the cake to light candle. Scroll for chapters. Want more pages or to change the writing? Tell me what to add.</footer>
+
+  </div>
+  <div class="confetti" id="confetti"></div>  <script>
+    // IntersectionObserver for chapter reveal
+    const chapters = document.querySelectorAll('.chapter');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    },{threshold:0.18});
+    chapters.forEach(c=>io.observe(c));
+
+    // Cake click to toggle flame + confetti
+    const cake = document.getElementById('cake');
+    const flame = document.getElementById('flame');
+    const confettiRoot = document.getElementById('confetti');
+    let lit=false;
+
+    function spawnConfetti(){
+      // simple confetti pieces
+      for(let i=0;i<40;i++){
+        const el = document.createElement('div');
+        el.className='piece';
+        el.style.left = Math.random()*100 + '%';
+        el.style.top = '-10%';
+        el.style.background = ['#ff7ab6','#ffd76b','#9af7ff','#b3ffbd','#ffb3e6'][Math.floor(Math.random()*5)];
+        el.style.transform = `rotate(${Math.random()*360}deg)`;
+        el.style.width = (6+Math.random()*10)+'px';
+        el.style.height = (8+Math.random()*12)+'px';
+        confettiRoot.appendChild(el);
+        // animate
+        const fall = el.animate([
+          {transform:`translateY(0) rotate(${Math.random()*360}deg)`, opacity:1},
+          {transform:`translateY(${80+Math.random()*300}vh) rotate(${Math.random()*720}deg)`, opacity:0}
+        ],{duration:1800+Math.random()*1600, easing:'cubic-bezier(.2,.9,.2,1)'});
+        fall.onfinish = ()=>el.remove();
       }
-      document.getElementById("proposal").style.display = "none";
-      const page = document.createElement("div");
-      page.className = "page active";
-      page.innerHTML = `<h2>${pages[currentPage].title}</h2><p>${pages[currentPage].content}</p>`;
-      pagesContainer.appendChild(page);
     }
 
-    function nextPage() {
-      if (currentPage < pages.length) {
-        currentPage++;
-        renderPage();
+    cake.addEventListener('click', ()=>{
+      lit = !lit;
+      if(lit){
+        flame.classList.add('lit');
+        spawnConfetti();
+      } else {
+        flame.classList.remove('lit');
       }
-    }
+    });
 
-    function prevPage() {
-      if (currentPage > 0) {
-        currentPage--;
-        renderPage();
-      }
-    }
+    // Auto light once when page loads softly
+    window.addEventListener('load', ()=>{
+      setTimeout(()=>{
+        flame.classList.add('lit');
+        spawnConfetti();
+      },700);
+    });
 
-    function generateHearts() {
-      const heartContainer = document.getElementById("heart-container");
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.style.left = `${Math.random() * 100}vw`;
-        heart.style.animationDelay = `${Math.random() * 10}s`;
-        heartContainer.appendChild(heart);
-      }
-    }
-
-    generateHearts();
-    renderPage();
+    // small accessibility: allow space to toggle
+    window.addEventListener('keydown',(e)=>{if(e.code==='Space'){e.preventDefault();cake.click();}});
   </script></body>
-</html>
+  </html>
